@@ -190,3 +190,8 @@ summary {
 }
 
 /* Footer end */
+
+.human-summary-submission a {
+    color: #be4513;
+    text-decoration: underline;
+}

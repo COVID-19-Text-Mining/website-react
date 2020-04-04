@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
 
-import { appendClassName } from "@elastic/react-search-ui-views/lib/view-helpers";
-import { isFieldValueWrapper } from "@elastic/react-search-ui-views/lib/types/FieldValueWrapper";
+import {appendClassName} from "@elastic/react-search-ui-views/lib/view-helpers";
+import {isFieldValueWrapper} from "@elastic/react-search-ui-views/lib/types/FieldValueWrapper";
 
 function getFieldType(result, field, type) {
   if (result[field]) return result[field][type];
@@ -45,7 +45,7 @@ function getEscapedFields(result) {
     // vs.
     // FieldValueWrapper: "_metaField: {raw: '1939191'}"
     if (!isFieldValueWrapper(result[field])) return acc;
-    return { ...acc, [field]: getEscapedField(result, field) };
+    return {...acc, [field]: getEscapedField(result, field)};
   }, {});
 }
 
@@ -165,7 +165,7 @@ function makeNLPKeywordsSection(keywordsML) {
   return null;
 }
 
-function makeHumanSummarySection(summary) {
+function makeHumanSummarySection(summary, fields) {
   if (summary.length) {
     return (
       <div>
@@ -180,8 +180,34 @@ function makeHumanSummarySection(summary) {
         />
       </div>
     );
+  } else {
+    let params = {
+      link: encodeURIComponent(fields.link),
+      doi: encodeURIComponent(fields.doi),
+      abstract: encodeURIComponent(fields.abstract),
+    };
+
+    // If url with params is too long, delete the abstract
+    if (params.abstract && params.abstract.length > 2048) {
+      delete params.abstract;
+    }
+    let gform_url = "https://docs.google.com/forms/d/e/1FAIpQLSf4z7LCBizCs6pUgO3UyfxJMCAVC-bRh3cvW7uNghDu4UeBig/viewform?usp=pp_url";
+    let true_url = (
+      gform_url +
+      '&entry.101149199=' + params.link +
+      '&entry.1258141481=' + params.doi +
+      '&entry.112702407=' + params.abstract);
+
+    return (
+      <div>
+        <div className="has-margin-5 has-text-weight-bold human-summary-submission">
+          <a target="_blank" rel="noopener noreferrer" href={true_url}>
+            Submit a summary for this article (or help fix a bad abstract).
+          </a>
+        </div>
+      </div>
+    );
   }
-  return null;
 }
 
 function ResultView({
@@ -222,14 +248,14 @@ function ResultView({
         {titleOrBestAlternative && !url && (
           <span
             className="has-text-weight-bold has-margin-left-5 is-size-5"
-            dangerouslySetInnerHTML={{ __html: titleOrBestAlternative }}
+            dangerouslySetInnerHTML={{__html: titleOrBestAlternative}}
           />
         )}
         {titleOrBestAlternative && url && (
           <a
             // className="sui-result__title sui-result__title-link has-margin-left-30"
             className="has-text-link has-text-weight-bold has-margin-left-5 is-size-5"
-            dangerouslySetInnerHTML={{ __html: titleOrBestAlternative }}
+            dangerouslySetInnerHTML={{__html: titleOrBestAlternative}}
             href={url}
             onClick={onClickLink}
             target="_blank"
@@ -265,7 +291,7 @@ function ResultView({
               />
             </div>
           </li>
-          <li>{makeHumanSummarySection(summaryHuman)}</li>
+          <li>{makeHumanSummarySection(summaryHuman, fields)}</li>
           <li>{makeKeywordsSection(keywords)}</li>
           <li>{makeNLPKeywordsSection(keywordsML)}</li>
         </ul>
