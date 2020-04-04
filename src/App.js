@@ -17,9 +17,9 @@ import {
 import { Layout, MultiCheckboxFacet } from "@elastic/react-search-ui-views";
 
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
-import "./assets/bulma-helpers.css"
-import "./assets/bulma.css"
-import "./assets/covidscholar.css"
+import "./assets/bulma-helpers.css";
+import "./assets/bulma.css";
+import "./assets/covidscholar.css";
 import {
   buildAutocompleteQueryConfig,
   buildFacetConfigFromConfig,
@@ -29,7 +29,9 @@ import {
   getFacetFields,
 } from "./config/config-helper";
 
-import { TwitterTimelineEmbed } from 'react-twitter-embed';
+import ResultView from "./components/ResultView";
+
+import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
 const connector = new AppSearchAPIConnector({
@@ -42,11 +44,11 @@ const config = {
   searchQuery: {
     facets: buildFacetConfigFromConfig(),
     ...buildSearchOptionsFromConfig(),
-    disjunctiveFacets:["journal"]
+    disjunctiveFacets: ["journal"],
   },
   autocompleteQuery: buildAutocompleteQueryConfig(),
   apiConnector: connector,
-  alwaysSearchOnInitialLoad: false,
+  alwaysSearchOnInitialLoad: true,
 };
 
 export default function App() {
@@ -58,29 +60,35 @@ export default function App() {
             <div className="App">
               <ErrorBoundary>
                 <Layout
-                  header={<SearchBox
+                  header={
+                    <SearchBox
                       autocompleteSuggestions={true}
-                      inputView={({ getAutocomplete, getInputProps, getButtonProps }) => (
-                          <>
-                            <div className="sui-search-box__wrapper">
-                              <input
-                                  {...getInputProps({
-                                    placeholder: "Search",
-                                    className: "input is-large is-rounded",
-                                    style: {'inputmode': 'search'}
-                                  })}
-                              />
-                              {getAutocomplete()}
-                            </div>
+                      inputView={({
+                        getAutocomplete,
+                        getInputProps,
+                        getButtonProps,
+                      }) => (
+                        <>
+                          <div className="sui-search-box__wrapper is-full-width">
                             <input
-                                {...getButtonProps({
-                                  className: "button is-large is-rounded",
-
-                                })}
+                              {...getInputProps({
+                                placeholder: "Search",
+                                className: "input is-medium is-rounded",
+                                style: { inputmode: "search" },
+                                autoFocus: true
+                              })}
                             />
-                          </>
+                            {getAutocomplete()}
+                          </div>
+                          <input
+                            {...getButtonProps({
+                              className: "button is-large is-rounded is-hidden",
+                            })}
+                          />
+                        </>
                       )}
-                  />}
+                    />
+                  }
                   sideContent={
                     <div>
                       {wasSearched && (
@@ -90,7 +98,13 @@ export default function App() {
                         />
                       )}
                       {getFacetFields().map((field) => (
-                        <Facet key={field} field={field} label={field} view={MultiCheckboxFacet} filterType="any" />
+                        <Facet
+                          key={field}
+                          field={field}
+                          label={field}
+                          view={MultiCheckboxFacet}
+                          filterType="any"
+                        />
                       ))}
                     </div>
                   }
@@ -99,6 +113,7 @@ export default function App() {
                       titleField={getConfig().titleField}
                       urlField={getConfig().urlField}
                       shouldTrackClickThrough={true}
+                      resultView={ResultView}
                     />
                   }
                   bodyHeader={

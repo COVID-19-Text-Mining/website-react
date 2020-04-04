@@ -904,6 +904,10 @@ table th {
   font-style: italic !important;
 }
 
+.is-bold {
+  font-weight: bold !important;
+}
+
 .has-text-white {
   color: white !important;
 }
