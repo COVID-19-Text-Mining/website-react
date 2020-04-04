@@ -1,0 +1,38 @@
+{
+  "engineName": "entries",
+  "endpointBase": "<THE_ENDPOINT>",
+  "searchKey": "<YOUR_API_KEY>",
+  "resultFields": [
+    "keywords",
+    "has_year",
+    "has_month",
+    "link",
+    "category_ml",
+    "summary_ml",
+    "abstract",
+    "title",
+    "category_human",
+    "summary_human",
+    "journal",
+    "keywords_ml",
+    "is_covid19",
+    "has_day",
+    "publication_date",
+    "doi",
+    "authors",
+    "id"
+  ],
+  "sortFields": [
+    "publication_date"
+  ],
+  "facets": [
+    "is_covid19",
+    "journal"
+  ],
+  "titleField": "title",
+  "urlField": "link",
+  "abstractField": "abstract",
+  "humanSummaryField": "summary_human",
+  "mlSummaryField": "summary_ml"
+}
+
