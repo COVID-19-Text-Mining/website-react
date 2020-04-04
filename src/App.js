@@ -31,7 +31,9 @@ import {
 
 import ResultView from "./components/ResultView";
 
-import { TwitterTimelineEmbed } from "react-twitter-embed";
+import logo from './covidscholar_logo_cascade.png';
+
+// import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
 const connector = new AppSearchAPIConnector({
@@ -69,7 +71,10 @@ export default function App() {
                         getButtonProps,
                       }) => (
                         <>
-                          <div className="sui-search-box__wrapper is-full-width">
+                          <div className="is-quarter-width">
+                            <img className="covid-scholar-logo" src={logo}/>
+                          </div>
+                          <div className="sui-search-box__wrapper">
                             <input
                               {...getInputProps({
                                 placeholder: "Search",

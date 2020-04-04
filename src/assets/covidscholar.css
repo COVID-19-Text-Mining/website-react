@@ -158,7 +158,8 @@ summary {
     margin-right: 5px;
 }
 
-/* Keyword highlight */
+/* Keyword highlight start */
+
 .sui-results-container em:after {
     content: none;
 }
@@ -168,3 +169,13 @@ summary {
 }
 
 /* Keyword highlight end */
+
+/* Logo start */
+
+.covid-scholar-logo {
+    width: 80% !important;
+    position: relative;
+    left: 10%;
+}
+
+/* Logo end */
