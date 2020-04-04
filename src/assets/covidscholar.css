@@ -1,7 +1,7 @@
 .msweb-is-tall {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 .msweb-is-tall-container {
@@ -9,12 +9,18 @@
 }
 
 .msweb-fade-in {
-  animation: sweep 0.5s ease-in-out;
+    animation: sweep 0.5s ease-in-out;
 }
 
 @keyframes sweep {
-  0%    {opacity: 0; margin-left: 0px}
-  100%  {opacity: 1; margin-left: 0px}
+    0% {
+        opacity: 0;
+        margin-left: 0px
+    }
+    100% {
+        opacity: 1;
+        margin-left: 0px
+    }
 }
 
 .rc-slider-handle {
@@ -32,7 +38,7 @@
     width: 15px;
     height: 15px;
     bottom: -6px;
-    margin-left:-9px;
+    margin-left: -9px;
 }
 
 .msweb-is-red-txt {
@@ -81,13 +87,12 @@
 }
 
 details summary::-webkit-details-marker {
-  display:none;
+    display: none;
 }
 
-summary{
-  outline:none;
+summary {
+    outline: none;
 }
-
 
 .msweb-hovertrans {
     -moz-transition: all .2s ease-in;
@@ -140,11 +145,11 @@ summary{
     color: darkgoldenrod;
 }
 
-.msweb-custom-box-shading{
+.msweb-custom-box-shading {
     box-shadow: 0 5px 3px rgba(10, 10, 10, 0.1), 0 0 0 3px rgba(10, 10, 10, 0.1);
 }
 
-.msweb-custom-box-shading:hover{
+.msweb-custom-box-shading:hover {
     box-shadow: 0 5px 3px rgba(10, 10, 10, 0.1), 0 0 0 3px rgba(0, 00, 00, 1);
 }
 
@@ -152,3 +157,14 @@ summary{
     margin-left: 5px;
     margin-right: 5px;
 }
+
+/* Keyword highlight */
+.sui-results-container em:after {
+    content: none;
+}
+
+.sui-results-container em {
+    font-weight: bold;
+}
+
+/* Keyword highlight end */
