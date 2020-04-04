@@ -1,26 +1,129 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
+
+import {
+  ErrorBoundary,
+  Facet,
+  SearchProvider,
+  SearchBox,
+  Results,
+  PagingInfo,
+  ResultsPerPage,
+  Paging,
+  Sorting,
+  WithSearch,
+} from "@elastic/react-search-ui";
+import { Layout, MultiCheckboxFacet } from "@elastic/react-search-ui-views";
+
+import "@elastic/react-search-ui-views/lib/styles/styles.css";
+import "./assets/bulma-helpers.css"
+import "./assets/bulma.css"
+import "./assets/covidscholar.css"
+import {
+  buildAutocompleteQueryConfig,
+  buildFacetConfigFromConfig,
+  buildSearchOptionsFromConfig,
+  buildSortOptionsFromConfig,
+  getConfig,
+  getFacetFields,
+} from "./config/config-helper";
+
+import { TwitterTimelineEmbed } from 'react-twitter-embed';
+
+const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
+const connector = new AppSearchAPIConnector({
+  searchKey,
+  engineName,
+  hostIdentifier,
+  endpointBase,
+});
+const config = {
+  searchQuery: {
+    facets: buildFacetConfigFromConfig(),
+    ...buildSearchOptionsFromConfig(),
+    disjunctiveFacets:["journal"]
+  },
+  autocompleteQuery: buildAutocompleteQueryConfig(),
+  apiConnector: connector,
+  alwaysSearchOnInitialLoad: false,
+};
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SearchProvider config={config}>
+      <WithSearch mapContextToProps={({ wasSearched }) => ({ wasSearched })}>
+        {({ wasSearched }) => {
+          return (
+            <div className="App">
+              <ErrorBoundary>
+                <Layout
+                  header={<SearchBox
+                      autocompleteSuggestions={true}
+                      inputView={({ getAutocomplete, getInputProps, getButtonProps }) => (
+                          <>
+                            <div className="sui-search-box__wrapper">
+                              <input
+                                  {...getInputProps({
+                                    placeholder: "Search",
+                                    className: "input is-large is-rounded",
+                                    style: {'inputmode': 'search'}
+                                  })}
+                              />
+                              {getAutocomplete()}
+                            </div>
+                            <input
+                                {...getButtonProps({
+                                  className: "button is-large is-rounded",
+
+                                })}
+                            />
+                          </>
+                      )}
+                  />}
+                  sideContent={
+                    <div>
+                      {wasSearched && (
+                        <Sorting
+                          label={"Sort by"}
+                          sortOptions={buildSortOptionsFromConfig()}
+                        />
+                      )}
+                      {getFacetFields().map((field) => (
+                        <Facet key={field} field={field} label={field} view={MultiCheckboxFacet} filterType="any" />
+                      ))}
+                    </div>
+                  }
+                  bodyContent={
+                    <Results
+                      titleField={getConfig().titleField}
+                      urlField={getConfig().urlField}
+                      shouldTrackClickThrough={true}
+                    />
+                  }
+                  bodyHeader={
+                    <React.Fragment>
+                      {wasSearched && <PagingInfo />}
+                      {wasSearched && <ResultsPerPage />}
+                    </React.Fragment>
+                  }
+                  bodyFooter={<Paging />}
+                />
+              </ErrorBoundary>
+            </div>
+          );
+        }}
+      </WithSearch>
+    </SearchProvider>
   );
 }
 
-export default App;
+// <div className="selfCenter spaceBetween standardWidth">
+//   <TwitterTimelineEmbed
+//       sourceType="list"
+//       id="1246182907200172035"
+//       theme="light"
+//       noHeader
+//       options={{height: 800}}
+//   />
+// </div>
