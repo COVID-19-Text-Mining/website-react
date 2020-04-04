@@ -58,6 +58,7 @@ export default function App() {
     <SearchProvider config={config}>
       <WithSearch mapContextToProps={({wasSearched}) => ({wasSearched})}>
         {({wasSearched}) => {
+          document.title = "CovidScholar - A knowledge portal for COVID-19 research built by the team behind Matscholar.";
           return (
             <div className="App">
               <ErrorBoundary>
@@ -72,7 +73,7 @@ export default function App() {
                                   }) => (
                         <>
                           <div className="is-quarter-width">
-                            <img className="covid-scholar-logo" src={logo}/>
+                            <img className="covid-scholar-logo" src={logo} alt="logo"/>
                           </div>
                           <div className="sui-search-box__wrapper">
                             <input
@@ -140,10 +141,12 @@ export default function App() {
                       The virus icon in our logo was made by Freepik from www.flaticon.com</p></div>
                   </div>
                   <div><a href="https://github.com/materialsintelligence/matscholar-web" target="_blank"
-                          className="has-text-weight-bold">About Matscholar</a><span> | </span><a
-                    href="https://www.iubenda.com/privacy-policy/55585319" target="_blank"
+                          rel="noopener noreferrer" className="has-text-weight-bold">
+                    About Matscholar</a><span> | </span><a
+                    href="https://www.iubenda.com/privacy-policy/55585319" target="_blank" rel="noopener noreferrer"
                     className="has-text-weight-bold">Privacy Policy</a><span> | </span><a
-                    href="https://discuss.matsci.org/c/matscholar" target="_blank" className="has-text-weight-bold">Matscholar
+                    href="https://discuss.matsci.org/c/matscholar" target="_blank" rel="noopener noreferrer"
+                    className="has-text-weight-bold">Matscholar
                     Forum</a></div>
                   <div><span>Copyright © 2019 - Materials Intelligence</span></div>
                 </div>
