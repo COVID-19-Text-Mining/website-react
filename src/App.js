@@ -148,7 +148,7 @@ export default function App() {
                     href="https://discuss.matsci.org/c/matscholar" target="_blank" rel="noopener noreferrer"
                     className="has-text-weight-bold">Matscholar
                     Forum</a></div>
-                  <div><span>Copyright © 2019 - Materials Intelligence</span></div>
+                  <div><span>Copyright © 2020 - Materials Intelligence</span></div>
                 </div>
               </ErrorBoundary>
             </div>
