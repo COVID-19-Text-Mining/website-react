@@ -179,3 +179,10 @@ summary {
 }
 
 /* Logo end */
+
+/* Footer start */
+.sui-layout-body:after {
+    content: none;
+}
+
+/* Footer end */
