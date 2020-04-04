@@ -168,6 +168,10 @@ summary {
     font-weight: bold;
 }
 
+.sui-results-container .has-text-link em {
+    color: #153ce4;
+}
+
 /* Keyword highlight end */
 
 /* Logo start */
