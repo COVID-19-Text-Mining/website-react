@@ -31,7 +31,7 @@ import {
 
 import ResultView from "./components/ResultView";
 
-import logo from './covidscholar_logo_cascade.png';
+import logo from './covidscholar_logo.png';
 
 // import { TwitterTimelineEmbed } from "react-twitter-embed";
 
@@ -85,6 +85,7 @@ export default function App() {
                               })}
                             />
                             {getAutocomplete()}
+                           <h5 className="has-margin-20 is-light">Search more than <em>43,000</em> papers on COVID-19/SARS-CoV-2 and related topics. </h5>
                           </div>
                           <input
                             {...getButtonProps({

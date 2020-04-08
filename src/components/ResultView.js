@@ -3,6 +3,8 @@ import React from "react";
 
 import {appendClassName} from "@elastic/react-search-ui-views/lib/view-helpers";
 import {isFieldValueWrapper} from "@elastic/react-search-ui-views/lib/types/FieldValueWrapper";
+import ShowMoreText from "react-show-more-text";
+import ReadMore from "./ReadMore"
 
 function getFieldType(result, field, type) {
   if (result[field]) return result[field][type];
@@ -169,11 +171,11 @@ function makeHumanSummarySection(summary, fields) {
   if (summary.length) {
     return (
       <div>
-        <div className="has-margin-5 has-text-weight-bold">
+        <div className="has-margin-5 has-text-weight-bold has-margin-right-30">
           User-submitted summary:
         </div>
         <div
-          className="is-multiline has-margin-5 msweb-is-purple-txt"
+          className="is-multiline has-margin-5 msweb-is-darkcyan-txt has-margin-right-30"
           dangerouslySetInnerHTML={{
             __html: summary,
           }}
@@ -200,9 +202,12 @@ function makeHumanSummarySection(summary, fields) {
 
     return (
       <div>
-        <div className="has-margin-5 has-text-weight-bold human-summary-submission">
-          <a target="_blank" rel="noopener noreferrer" href={true_url}>
-            Submit a summary for this article (or help fix a bad abstract).
+        <div className="has-margin-5 human-summary-submission">
+          <a target="_blank"
+             rel="noopener noreferrer"
+             href={true_url}
+             className="is-pulled-right has-margin-right-30">
+            Submit/fix metadata
           </a>
         </div>
       </div>
@@ -231,8 +236,14 @@ function ResultView({
   const abstract = getEscapedField(result, "abstract") || "";
   const abstractRaw = getRaw(result, "abstract") || "";
   const journal = getRaw(result, "journal") || "";
-  const keywords = getEscapedField(result, "keywords");
-  const keywordsML = getEscapedField(result, "keywords_ml");
+  let keywords = getEscapedField(result, "keywords");
+  if (keywords.startsWith(",")){
+    keywords = keywords.slice(1, -1);
+  }
+  let keywordsML = getEscapedField(result, "keywords_ml");
+  if (keywordsML.startsWith(",")){
+    keywordsML = keywordsML.slice(1, -1);
+  }
   const maxLength = 90;
   const summaryHuman = getEscapedField(result, "summary_human");
 
@@ -279,21 +290,23 @@ function ResultView({
             </div>
           </li>
           <li>
+            {/*<div>*/}
+            {/*  <div*/}
+            {/*    className="text-body is-size-6 has-margin-5 has-margin-right-30"*/}
+            {/*    dangerouslySetInnerHTML={{*/}
+            {/*      __html:*/}
+            {/*        abstract.length >= abstractRaw.length*/}
+            {/*          ? abstract*/}
+            {/*          : abstract + "...",*/}
+            {/*    }} />*/}
+            {/*</div>*/}
             <div>
-              <div
-                className="text-body is-size-6 has-margin-5 has-margin-right-30"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    abstract.length >= abstractRaw.length
-                      ? abstract
-                      : abstract + "...",
-                }}
-              />
+              <ReadMore long={result.abstract.raw} short={abstract.slice(0, 345)}/>
             </div>
           </li>
-          <li>{makeHumanSummarySection(summaryHuman, fields)}</li>
           <li>{makeKeywordsSection(keywords)}</li>
           <li>{makeNLPKeywordsSection(keywordsML)}</li>
+          <li>{makeHumanSummarySection(summaryHuman, fields)}</li>
         </ul>
       </div>
     </li>

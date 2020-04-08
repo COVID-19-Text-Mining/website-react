@@ -62,6 +62,8 @@ function formatSortFieldName(sortField, direction) {
     return "Publication Date (newest first)"
   } else if (sortField === "publication_date" && direction === "asc") {
     return "Publication Date (oldest first)"
+  } else if (sortField === "is_covid19_ml") {
+    return "Relevance to COVID-19 (most relevant first)"
   } else {
     return `${capitalizeFirstLetter(sortField)} ${toUpperCase(direction)}`
   }
@@ -144,10 +146,10 @@ export function buildSearchOptionsFromConfig() {
   if (config.abstractField) {
     resultFields[config.abstractField] = {
       raw: {},
-      snippet: {
-        size: 1000,
-        fallback: true
-      }
+      // snippet: {
+      //   size: 300,
+      //   fallback: true
+      // }
     };
   }
 
@@ -207,12 +209,13 @@ export function buildSortOptionsFromConfig() {
           value: sortField,
           direction: "asc"
         });
+      } else if (sortField !== "is_covid19_ml") {
+        acc.push({
+          name: `${formatSortFieldName(sortField, "desc")}`,
+          value: sortField,
+          direction: "desc"
+        });
       }
-      acc.push({
-        name: `${formatSortFieldName(sortField, "desc")}`,
-        value: sortField,
-        direction: "desc"
-      });
       return acc;
     }, [])
   ];

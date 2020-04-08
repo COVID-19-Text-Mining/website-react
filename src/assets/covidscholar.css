@@ -70,6 +70,10 @@
     color: mediumpurple;
 }
 
+.msweb-is-darkcyan-txt {
+    color: #2b8182;
+}
+
 .msweb-is-pink-txt {
     color: deeppink;
 }
@@ -172,6 +176,10 @@ summary {
     color: #153ce4;
 }
 
+.has-underline {
+    text-decoration: underline;
+}
+
 /* Keyword highlight end */
 
 /* Logo start */
@@ -192,6 +200,6 @@ summary {
 /* Footer end */
 
 .human-summary-submission a {
-    color: #be4513;
+    color: #de0008;
     text-decoration: underline;
 }
