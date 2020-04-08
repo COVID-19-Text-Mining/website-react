@@ -58,7 +58,6 @@ export default function App() {
     <SearchProvider config={config}>
       <WithSearch mapContextToProps={({wasSearched}) => ({wasSearched})}>
         {({wasSearched}) => {
-          document.title = "CovidScholar - A knowledge portal for COVID-19 research built by the team behind Matscholar.";
           return (
             <div className="App">
               <ErrorBoundary>
