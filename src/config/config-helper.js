@@ -137,7 +137,7 @@ export function buildSearchOptionsFromConfig() {
     resultFields[config.titleField] = {
       raw: {},
       snippet: {
-        size: 100,
+        size: 1000,
         fallback: true
       }
     };

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ResultView from "./ResultView";
 //
 // React.createClass({
 //   getInitialState: function () {

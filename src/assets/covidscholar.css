@@ -185,9 +185,11 @@ summary {
 /* Logo start */
 
 .covid-scholar-logo {
-    width: 80% !important;
+    width: 300px;
     position: relative;
-    left: 10%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, 0%);
 }
 
 /* Logo end */
@@ -202,4 +204,100 @@ summary {
 .human-summary-submission a {
     color: #de0008;
     text-decoration: underline;
+}
+
+.sui-layout-body {
+    background: #ffffff
+}
+
+.sui-search-box__wrapper {
+    z-index: 2;
+}
+
+.is-search-width {
+    width: 67% !important;
+}
+
+.is-vertical-align-middle {
+    vertical-align: middle;
+ }
+
+.header-full-width {
+    position:absolute;
+    left:0;
+    right:0;
+}
+
+.sui-layout-header {
+    padding-top: 0px;
+    padding-right: 24px;
+    padding-bottom: 32px;
+    padding-left: 24px;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 0px;
+}
+
+.autocomplete .sui-search-box__text-input {
+    box-shadow: rgba(59, 69, 79, 0.3) 0px 2px 4px; }
+.sui-search-box__autocomplete-container {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+    top: 90%;
+    margin: 0;
+    padding: 12px 0 12px 0;
+    line-height: 1.5;
+    background: white;
+    position: absolute;
+    box-shadow: rgba(59, 69, 79, 0.3) 0px 2px 4px;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px; }
+.autocomplete .sui-search-box__autocomplete-container {
+    display: -webkit-box;
+    display: flex;
+    z-index: 1; }
+.sui-search-box__autocomplete-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 24px 0;
+    background: transparent;
+    border-radius: 3px; }
+.sui-search-box__autocomplete-container ul:last-child {
+    padding: 0; }
+.sui-search-box__autocomplete-container li {
+    margin: 0 12px;
+    font-size: 0.9em;
+    padding: 4px 12px;
+    border-radius: 4px;
+    color: #555;
+    cursor: default; }
+.sui-search-box__autocomplete-container li em {
+    font-style: normal;
+    color: #3a56e4;
+    background: #edf0fd; }
+.sui-search-box__autocomplete-container li:hover {
+    background: #3a56e4;
+    color: #ffffff; }
+.sui-search-box__autocomplete-container li:hover em {
+    background: transparent;
+    color: #ffffff; }
+.sui-search-box__autocomplete-container li[aria-selected="true"] {
+    background: #3a56e4;
+    color: #ffffff; }
+.sui-search-box__autocomplete-container li[aria-selected="true"] em {
+    background: transparent;
+    color: #ffffff; }
+
+.navbar {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
 }
