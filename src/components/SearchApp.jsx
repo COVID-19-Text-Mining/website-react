@@ -22,7 +22,7 @@ import {
 
 import ResultView from "../components/ResultView";
 
-import logo from "../covidscholar_logo.png";
+import logo from "../assets/covscholar_logo_V2.png";
 import {Sticky} from 'react-sticky';
 import {Image, Navbar} from "react-bootstrap";
 import FilterSideBar from "./FilterSideBar";
