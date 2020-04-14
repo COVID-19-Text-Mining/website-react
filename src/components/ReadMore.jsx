@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./ReadMore.css";
 //
 // React.createClass({
 //   getInitialState: function () {
@@ -20,7 +21,7 @@ import PropTypes from "prop-types";
 class ReadMore extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { expanded: false };
+    this.state = {expanded: false};
   }
 
   showMoreLess = () => {
@@ -35,13 +36,10 @@ class ReadMore extends React.Component {
         return (
           <div className="my-1 ml-1 mr-5">
             <span
-              dangerouslySetInnerHTML={{ __html: this.props.short + "..." }}
-              className="text-body is-size-6 "
-            />
+              dangerouslySetInnerHTML={{__html: this.props.short + "..."}}/>
             <span
-              className="btn btn-sm btn-link m-1"
-              onClick={this.showMoreLess}
-            >
+              className="read-more btn btn-sm btn-link"
+              onClick={this.showMoreLess}>
               {"[+]"}
             </span>
           </div>
@@ -50,20 +48,17 @@ class ReadMore extends React.Component {
         return (
           <div className="my-1 ml-1 mr-5">
             <span
-              dangerouslySetInnerHTML={{ __html: this.props.long }}
-              className="text-body is-size-6"
-            />
-            <a
-              className="btn btn-link m-1"
-              onClick={this.showMoreLess}
-            >
+              dangerouslySetInnerHTML={{__html: this.props.long}}/>
+            <span
+              className="read-more btn btn-sm btn-link"
+              onClick={this.showMoreLess}>
               {"[-]"}
-            </a>
+            </span>
           </div>
         );
       }
     } else {
-      return <span />;
+      return <span/>;
     }
   }
 }

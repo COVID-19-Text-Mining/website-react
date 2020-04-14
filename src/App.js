@@ -25,6 +25,13 @@ class App extends Component {
   }
 }
 
+// // GA page view
+// if ("ga" in window) {
+//   tracker = ga.getAll()[0];
+//   if (tracker)
+//     tracker.send("event", "Test", "Test GA");
+// }
+
 export default App;
 
 // <div className="selfCenter spaceBetween standardWidth">

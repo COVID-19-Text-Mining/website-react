@@ -3,39 +3,40 @@ import AppSearchAPIConnector from "@elastic/search-ui-app-search-connector";
 
 import {
   ErrorBoundary,
-  Facet,
+  // Facet,
   SearchProvider,
   SearchBox,
   Results,
   PagingInfo,
   ResultsPerPage,
   Paging,
-  Sorting,
+  // Sorting,
   WithSearch,
 } from "@elastic/react-search-ui";
-import { Layout, MultiCheckboxFacet } from "@elastic/react-search-ui-views";
+import {
+  Layout,
+  // MultiCheckboxFacet
+} from "@elastic/react-search-ui-views";
 
-import "@elastic/react-search-ui-views/lib/styles/styles.css";
-// import "../assets/bulma-helpers.css";
-// import "../assets/bulma.css";
-import "../assets/covidscholar.css";
 import {
   buildAutocompleteQueryConfig,
   buildFacetConfigFromConfig,
   buildSearchOptionsFromConfig,
-  buildSortOptionsFromConfig,
+  // buildSortOptionsFromConfig,
   getConfig,
-  getFacetFields,
+  // getFacetFields,
 } from "../config/config-helper";
 
 import ResultView from "../components/ResultView";
 
 import logo from "../covidscholar_logo.png";
-import NavigationBar from "./NavigationBar";
-import { Image, Navbar } from "react-bootstrap";
+import {Image, Navbar} from "react-bootstrap";
 import FilterSideBar from "./FilterSideBar";
 
-const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
+import "@elastic/react-search-ui-views/lib/styles/styles.css";
+import "./SearchApp.css"
+
+const {hostIdentifier, searchKey, endpointBase, engineName} = getConfig();
 const connector = new AppSearchAPIConnector({
   searchKey,
   engineName,
@@ -57,58 +58,53 @@ export default function SearchApp() {
   return (
     <SearchProvider config={config}>
       <WithSearch
-        mapContextToProps={({ wasSearched, isLoading }) => ({
+        mapContextToProps={({wasSearched, isLoading}) => ({
           wasSearched,
           isLoading,
-        })}
-      >
-        {({ wasSearched, isLoading }) => {
+        })}>
+        {({wasSearched, isLoading}) => {
           return (
             <div className="App">
               <ErrorBoundary>
                 <Layout
                   header={
-                    <div>
-                      <Navbar.Brand href="/">
+                    <nav className={"nav search-nav js-sticky-top"}>
+                      <Navbar.Brand href="/" className={"text-center"}>
                         <Image
-                            src={require("../covidscholar_logo.png")}
-                            width="200"
-                            className="d-inline-block align-top"
-                            // alt="Covid Scholar logo"
+                          src={logo}
+                          className="d-inline-block align-top"
+                          // alt="Covid Scholar logo"
                         />
                       </Navbar.Brand>
-                      <div>
+                      <div className={"nav-search-bar"}>
                         <SearchBox
                           autocompleteSuggestions={true}
                           inputView={({
-                            getAutocomplete,
-                            getInputProps,
-                            getButtonProps,
-                          }) => (
-                            <>
-                              <div className="sui-search-box__wrapper column">
-                                <h5 className="has-margin-left-30 has-margin-right-30">
-                                  {" "}
-                                  Search more than 44,000 papers related to
-                                  COVID-19
-                                </h5>
-                                <input
-                                  {...getInputProps({
-                                    placeholder: "Search",
-                                    className: "input is-medium is-rounded is-marginless",
-                                    style: { inputmode: "search" },
-                                    autoFocus: true,
-                                  })}
-                                />
-                                {getAutocomplete({
-                                    className: "zindex-popover is-marginless"
+                                        getAutocomplete,
+                                        getInputProps,
+                                        // getButtonProps,
+                                      }) => (
+                            <div className="sui-search-box__wrapper column">
+                              <span className="pl-1 pr-5 search-help-text">
+                                {" "}
+                                Search more than 44,000 COVID-19 papers
+                              </span>
+                              <input
+                                {...getInputProps({
+                                  placeholder: "Search",
+                                  className: "form-control form-rounded m-0",
+                                  style: {inputmode: "search"},
+                                  autoFocus: true,
                                 })}
-                              </div>
-                            </>
+                              />
+                              {getAutocomplete({
+                                className: "zindex-popover m-0"
+                              })}
+                            </div>
                           )}
                         />
                       </div>
-                    </div>
+                    </nav>
                   }
                   sideContent={FilterSideBar(wasSearched)}
                   bodyContent={
@@ -126,11 +122,11 @@ export default function SearchApp() {
                   }
                   bodyHeader={
                     <React.Fragment>
-                      {wasSearched && <PagingInfo />}
-                      {wasSearched && <ResultsPerPage />}
+                      {wasSearched && <PagingInfo/>}
+                      {wasSearched && <ResultsPerPage/>}
                     </React.Fragment>
                   }
-                  bodyFooter={!isLoading && <Paging totalPages={20} />}
+                  bodyFooter={!isLoading && <Paging totalPages={20}/>}
                 />
               </ErrorBoundary>
             </div>

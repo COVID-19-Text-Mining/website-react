@@ -12,3 +12,11 @@
     color: #de0008;
     text-decoration: underline;
 }
+
+.result-title {
+    color: #3273dc !important;
+}
+
+a.result-title:hover, a.result-title:focus {
+    color: #205bbc !important;
+}

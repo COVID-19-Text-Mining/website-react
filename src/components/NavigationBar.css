@@ -1,0 +1,13 @@
+
+.top-nav a {
+    text-decoration: none;
+    color: #bbb;
+}
+
+.top-nav a:hover {
+    color: #505050;
+}
+
+.top-nav a.active {
+    color: #505050;
+}

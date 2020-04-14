@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React from "react";
+import {BrowserRouter} from "react-router-dom";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App.js";
@@ -7,12 +7,10 @@ import * as serviceWorker from "./serviceWorker";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/covidscholar.css"
-// import "./assets/bulma.css"
-// import "./assets/bulma-helpers.css"
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <App/>
   </BrowserRouter>,
   document.getElementById("root")
 );

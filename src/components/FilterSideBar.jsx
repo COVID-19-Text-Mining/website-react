@@ -6,8 +6,10 @@ import {
 import { MultiCheckboxFacet } from "@elastic/react-search-ui-views";
 import React from "react";
 
+import "./FieldSideBar.css";
+
 function formatLabel(field) {
-    if (field === "is_covid19_ml_bool") {
+    if (field === "is_covid19") {
         return "Only COVID-19 Papers";
     } else {
         return field
