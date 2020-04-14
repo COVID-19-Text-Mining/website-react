@@ -1,16 +1,17 @@
+/* Result list start */
+
 .sui-result ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
+/* Result list end */
+
+/* Result title start */
+
 .larger {
     font-size: 1.25rem !important;
-}
-
-.human-summary-submission a {
-    color: #de0008;
-    text-decoration: underline;
 }
 
 .result-title {
@@ -20,3 +21,34 @@
 a.result-title:hover, a.result-title:focus {
     color: #205bbc !important;
 }
+
+/* Result title end */
+
+/* Summary start */
+
+.human-summary-submission a {
+    color: #de0008;
+    text-decoration: underline;
+}
+
+/* Summary end */
+
+/* Keyword highlight start */
+
+.sui-results-container em:after {
+    content: none;
+}
+
+.sui-results-container em {
+    font-weight: bold;
+}
+
+.sui-results-container .has-text-link em {
+    color: #153ce4;
+}
+
+.has-underline {
+    text-decoration: underline;
+}
+
+/* Keyword highlight end */

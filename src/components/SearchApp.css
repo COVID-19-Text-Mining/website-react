@@ -1,3 +1,5 @@
+/* Nav bar start */
+
 .search-nav {
     height: 5rem;
     background: white;
@@ -51,12 +53,115 @@
     }
 }
 
+/* Nav bar end */
+
+/* Search bar start */
+
 .form-rounded {
     border-radius: 1rem !important;
 }
 
-/*.js-sticky-top {*/
-/*    position: fixed;*/
-/*    top: 0;*/
-/*    height: 5rem;*/
-/*}*/
+.autocomplete .sui-search-box__text-input {
+    box-shadow: rgba(59, 69, 79, 0.3) 0 2px 4px;
+}
+
+.sui-search-box__autocomplete-container {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    left: 0;
+    right: 0;
+    top: 90%;
+    margin: 0;
+    padding: 12px 0 12px 0;
+    line-height: 1.5;
+    background: white;
+    position: absolute;
+    box-shadow: rgba(59, 69, 79, 0.3) 0 2px 4px;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.autocomplete .sui-search-box__autocomplete-container {
+    display: -webkit-box;
+    display: flex;
+    z-index: 1;
+}
+
+.sui-search-box__autocomplete-container ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 24px 0;
+    background: transparent;
+    border-radius: 3px;
+}
+
+.sui-search-box__autocomplete-container ul:last-child {
+    padding: 0;
+}
+
+.sui-search-box__autocomplete-container li {
+    margin: 0 12px;
+    font-size: 0.9em;
+    padding: 4px 12px;
+    border-radius: 4px;
+    color: #555;
+    cursor: default;
+}
+
+.sui-search-box__autocomplete-container li em {
+    font-style: normal;
+    color: #3a56e4;
+    background: #edf0fd;
+}
+
+.sui-search-box__autocomplete-container li:hover {
+    background: #3a56e4;
+    color: #ffffff;
+}
+
+.sui-search-box__autocomplete-container li:hover em {
+    background: transparent;
+    color: #ffffff;
+}
+
+.sui-search-box__autocomplete-container li[aria-selected="true"] {
+    background: #3a56e4;
+    color: #ffffff;
+}
+
+.sui-search-box__autocomplete-container li[aria-selected="true"] em {
+    background: transparent;
+    color: #ffffff;
+}
+
+.sui-search-box__wrapper {
+    z-index: 2;
+}
+
+/* Search bar end */
+
+/* Layout start */
+
+.sui-layout-body {
+    background: #ffffff
+}
+
+.sui-layout-header {
+    padding: 0 24px 0;
+    border: none;
+}
+
+/* Layout end */
+
+/* Footer start */
+.sui-layout-body:after {
+    content: none;
+}
+
+/* Footer end */
+
