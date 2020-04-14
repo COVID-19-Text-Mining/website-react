@@ -57,6 +57,10 @@
 
 /* Search bar start */
 
+.auto-complete {
+    z-index: 100;
+}
+
 .form-rounded {
     border-radius: 1rem !important;
 }

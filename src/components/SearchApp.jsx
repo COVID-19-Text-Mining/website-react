@@ -93,7 +93,7 @@ export default function SearchApp() {
                                   })}
                                 />
                                 {getAutocomplete({
-                                  className: "zindex-popover m-0"
+                                  className: "auto-complete m-0"
                                 })}
                               </div>
                             )}
