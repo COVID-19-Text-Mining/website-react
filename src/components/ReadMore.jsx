@@ -39,7 +39,8 @@ class ReadMore extends React.Component {
               dangerouslySetInnerHTML={{__html: this.props.short + "..."}}/>
             <span
               className="read-more btn btn-sm btn-link"
-              onClick={this.showMoreLess}>
+              onClick={this.showMoreLess}
+              onTouchStart={this.showMoreLess}>
               {"[+]"}
             </span>
           </div>
@@ -51,7 +52,8 @@ class ReadMore extends React.Component {
               dangerouslySetInnerHTML={{__html: this.props.long}}/>
             <span
               className="read-more btn btn-sm btn-link"
-              onClick={this.showMoreLess}>
+              onClick={this.showMoreLess}
+              onTouchStart={this.showMoreLess}>
               {"[-]"}
             </span>
           </div>
