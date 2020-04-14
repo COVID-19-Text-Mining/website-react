@@ -7,8 +7,8 @@ import * as serviceWorker from "./serviceWorker";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/covidscholar.css"
-import "./assets/bulma.css"
-import "./assets/bulma-helpers.css"
+// import "./assets/bulma.css"
+// import "./assets/bulma-helpers.css"
 
 ReactDOM.render(
   <BrowserRouter>

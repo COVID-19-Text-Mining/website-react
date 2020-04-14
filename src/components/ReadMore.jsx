@@ -33,28 +33,28 @@ class ReadMore extends React.Component {
     if (this.props.long && this.props.long.length > 0) {
       if (!this.state.expanded) {
         return (
-          <div className="has-margin-right-60 has-margin-5">
+          <div className="my-1 ml-1 mr-5">
             <span
               dangerouslySetInnerHTML={{ __html: this.props.short + "..." }}
               className="text-body is-size-6 "
             />
-            <a
-              className="a has-text-link has-margin-left-5"
+            <span
+              className="btn btn-sm btn-link m-1"
               onClick={this.showMoreLess}
             >
               {"[+]"}
-            </a>
+            </span>
           </div>
         );
       } else {
         return (
-          <div className="has-margin-right-60 has-margin-5">
+          <div className="my-1 ml-1 mr-5">
             <span
               dangerouslySetInnerHTML={{ __html: this.props.long }}
               className="text-body is-size-6"
             />
             <a
-              className="a has-text-link has-margin-left-5"
+              className="btn btn-link m-1"
               onClick={this.showMoreLess}
             >
               {"[-]"}
@@ -69,8 +69,6 @@ class ReadMore extends React.Component {
 }
 
 ReadMore.propTypes = {
-  // more: PropTypes.string.isRequired,
-  // less: PropTypes.string.isRequired,
   long: PropTypes.string.isRequired,
   short: PropTypes.string.isRequired,
 };

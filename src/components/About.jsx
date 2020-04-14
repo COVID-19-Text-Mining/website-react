@@ -1,7 +1,7 @@
 import React from "react";
 
-import "../assets/bulma.css";
-import "../assets/bulma-helpers.css";
+// import "../assets/bulma.css";
+// import "../assets/bulma-helpers.css";
 import "../assets/covidscholar.css";
 
 import { ErrorBoundary } from "@elastic/react-search-ui";

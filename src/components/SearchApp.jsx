@@ -16,8 +16,8 @@ import {
 import { Layout, MultiCheckboxFacet } from "@elastic/react-search-ui-views";
 
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
-import "../assets/bulma-helpers.css";
-import "../assets/bulma.css";
+// import "../assets/bulma-helpers.css";
+// import "../assets/bulma.css";
 import "../assets/covidscholar.css";
 import {
   buildAutocompleteQueryConfig,
@@ -30,7 +30,7 @@ import {
 
 import ResultView from "../components/ResultView";
 
-import logo from "../assets/covscholar_logo_V2.png";
+import logo from "../covidscholar_logo.png";
 import NavigationBar from "./NavigationBar";
 import { Image, Navbar } from "react-bootstrap";
 import FilterSideBar from "./FilterSideBar";
@@ -71,7 +71,7 @@ export default function SearchApp() {
                     <div>
                       <Navbar.Brand href="/">
                         <Image
-                            src={require("../assets/covscholar_logo_V2.png")}
+                            src={require("../covidscholar_logo.png")}
                             width="200"
                             className="d-inline-block align-top"
                             // alt="Covid Scholar logo"

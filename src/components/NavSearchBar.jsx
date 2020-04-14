@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { Nav, Navbar, Image } from "react-bootstrap";
 import styled from "styled-components";
 
-import "../assets/bulma.css";
-import "../assets/bulma-helpers.css";
+// import "../assets/bulma.css";
+// import "../assets/bulma-helpers.css";
 import "../assets/covidscholar.css";
 
 const Styles = styled.div`

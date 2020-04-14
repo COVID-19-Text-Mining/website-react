@@ -1,0 +1,14 @@
+.sui-result ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.larger {
+    font-size: 1.25rem !important;
+}
+
+.human-summary-submission a {
+    color: #de0008;
+    text-decoration: underline;
+}

@@ -1,11 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Nav, Navbar, Image } from "react-bootstrap";
+import {Link} from "react-router-dom";
+import {Nav, Navbar} from "react-bootstrap";
 import styled from "styled-components";
-
-import "../assets/bulma.css";
-import "../assets/bulma-helpers.css";
-import "../assets/covidscholar.css";
+import {Container} from "react-bootstrap";
 
 const Styles = styled.div`
   .navbar {
@@ -27,25 +24,23 @@ const Styles = styled.div`
 `;
 
 export default function NavigationBar() {
-  return (
-    <Styles>
-      <Navbar expand="lg">
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
-            <Nav.Item>
-              {/*<Nav.Link href="/">Home*/}
-                <Link to="/" class={"nav-link"}>Home</Link>
-              {/*</Nav.Link>*/}
-            </Nav.Item>
-            <Nav.Item>
-              {/*<Nav.Link href="/about">About*/}
-                <Link to="/about" class={"nav-link"}>About</Link>
-              {/*</Nav.Link>*/}
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-    </Styles>
-  );
+    return (
+        <Styles>
+            <Navbar expand="lg">
+                <Container>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="ml-auto">
+                            <Nav.Item>
+                                <Link to="/" className={"nav-link"}>Home</Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Link to="/about" className={"nav-link"}>About</Link>
+                            </Nav.Item>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </Styles>
+    );
 }
