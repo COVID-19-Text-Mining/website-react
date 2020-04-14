@@ -2,7 +2,6 @@ import React, { Component} from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 
 import SearchApp from "./components/SearchApp"
-import NavigationBar from "./components/NavigationBar"
 import Layout from "./components/Layout"
 import About from "./components/About"
 // import { TwitterTimelineEmbed } from "react-twitter-embed";

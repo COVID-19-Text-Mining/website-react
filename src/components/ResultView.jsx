@@ -301,7 +301,7 @@ function ResultView({
             {/*    }} />*/}
             {/*</div>*/}
             <div>
-              <ReadMore long={result.abstract.raw} short={abstract.slice(0, 345)}/>
+              <ReadMore long={result.abstract.raw || ""} short={abstract.slice(0, 345)}/>
             </div>
           </li>
           <li>{makeKeywordsSection(keywords)}</li>
