@@ -224,8 +224,8 @@ summary {
 }
 
 .sui-layout-header {
-    border-bottom: 1px solid #eeeeee;
     padding: 0 24px 0;
+    border: none;
 }
 
 .autocomplete .sui-search-box__text-input {

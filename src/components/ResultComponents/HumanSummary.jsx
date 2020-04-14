@@ -24,7 +24,7 @@ export default function HumanSummarySection(summary, fields) {
 
     // If url with params is too long, delete the abstract
     if (params.abstract && params.abstract.length > 2048) {
-      delete params.abstract;
+      params.abstract = "[#Abstract too long, redacted#]";
     }
     let gform_url = "https://docs.google.com/forms/d/e/1FAIpQLSf4z7LCBizCs6pUgO3UyfxJMCAVC-bRh3cvW7uNghDu4UeBig/viewform?usp=pp_url";
     let true_url = (

@@ -1,26 +1,30 @@
-import React, { Component} from 'react';
-import { Route, Switch, BrowserRouter } from 'react-router-dom';
+import React, {Component} from 'react';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import SearchApp from "./components/SearchApp"
 import Layout from "./components/Layout"
 import About from "./components/About"
+import {StickyContainer} from "react-sticky";
+
 // import { TwitterTimelineEmbed } from "react-twitter-embed";
 
 
 class App extends Component {
   render() {
     return (
-        <React.Fragment>
-          <BrowserRouter>
-            <Layout>
-              <Switch>
-                <Route exact path="/" component={SearchApp} />
-                <Route path="/about" component={About} />
-                <Route component={Error} />
-              </Switch>
-            </Layout>
-          </BrowserRouter>
-        </React.Fragment>
+        <StickyContainer>
+          <React.Fragment>
+            <BrowserRouter>
+              <Layout>
+                <Switch>
+                  <Route exact path="/" component={SearchApp}/>
+                  <Route path="/about" component={About}/>
+                  <Route component={Error}/>
+                </Switch>
+              </Layout>
+            </BrowserRouter>
+          </React.Fragment>
+        </StickyContainer>
     );
   }
 }
