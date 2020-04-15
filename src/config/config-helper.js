@@ -181,7 +181,6 @@ export function buildSearchOptionsFromConfig() {
 
 export function buildFacetConfigFromConfig() {
   const config = getConfig();
-
   const facets = (config.facets || []).reduce((acc, n) => {
     acc = acc || {};
     acc[n] = {
@@ -203,13 +202,24 @@ export function buildSortOptionsFromConfig() {
       direction: ""
     },
     ...(config.sortFields || []).reduce((acc, sortField) => {
-      if (sortField !== "publication_date") {
+      if (sortField === "publication_date"){
+        acc.push({
+          name: `${formatSortFieldName(sortField, "desc")}`,
+          value: sortField,
+          direction: "desc"
+        });
+      } else if (sortField === "is_covid19_ml") {
+        acc.push({
+          name: `${formatSortFieldName(sortField, "desc")}`,
+          value: sortField,
+          direction: "desc"
+        });
+      } else {
         acc.push({
           name: `${formatSortFieldName(sortField, "asc")}`,
           value: sortField,
           direction: "asc"
         });
-      } else if (sortField !== "is_covid19_ml") {
         acc.push({
           name: `${formatSortFieldName(sortField, "desc")}`,
           value: sortField,

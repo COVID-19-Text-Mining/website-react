@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-
+import Results from "@elastic/react-search-ui"
 import {appendClassName} from "@elastic/react-search-ui-views/lib/view-helpers";
 import {isFieldValueWrapper} from "@elastic/react-search-ui-views/lib/types/FieldValueWrapper";
 

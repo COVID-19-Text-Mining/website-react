@@ -23,7 +23,8 @@
     "react-twitter-embed": "^3.0.3",
     "sass": "^1.3.0",
     "styled-components": "^5.1.0",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "@elastic/search-ui": "latest"
   },
   "scripts": {
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
