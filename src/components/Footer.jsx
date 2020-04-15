@@ -14,7 +14,7 @@ export default function Footer() {
         <div>
           <Link to="/about" className={"font-weight-bold"}>About CovidScholar</Link>
           <span> | </span>
-          <Link to="/about" className={"font-weight-bold"}>Privacy Policy</Link>
+          <Link to="/privacy" className={"font-weight-bold"}>Privacy Policy</Link>
           <span> | </span>
           <a
             href="https://discuss.matsci.org/c/matscholar"

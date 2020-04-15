@@ -3,7 +3,8 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import SearchApp from "./components/SearchApp"
 import Layout from "./components/Layout"
-import About from "./components/About"
+import About from "./pages/About"
+import PrivacyPolicy from "./pages/PrivacyPolicy"
 import {StickyContainer} from "react-sticky";
 
 // import { TwitterTimelineEmbed } from "react-twitter-embed";
@@ -19,6 +20,7 @@ class App extends Component {
                 <Switch>
                   <Route exact path="/" component={SearchApp}/>
                   <Route path="/about" component={About}/>
+                  <Route path="/privacy" component={PrivacyPolicy}/>
                   <Route component={Error}/>
                 </Switch>
               </Layout>

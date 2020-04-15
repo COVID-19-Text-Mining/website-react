@@ -9,7 +9,7 @@ import React from "react";
 import "./FieldSideBar.css";
 
 function formatLabel(field) {
-    if (field === "is_covid19") {
+    if (field === "is_covid19_ml_bool") {
         return "Only COVID-19 Papers";
     } else {
         return field
