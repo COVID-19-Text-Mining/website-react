@@ -23,14 +23,14 @@ import {
 import ResultView from "../components/ResultView";
 
 import logo from "../assets/covscholar_logo_V2.png";
-import { Sticky } from "react-sticky";
-import { Image, Navbar } from "react-bootstrap";
+import Sticky from "./Sticky";
+import {Image, Navbar} from "react-bootstrap";
 import FilterSideBar from "./FilterSideBar";
 
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
 import "./SearchApp.css";
 
-const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
+const {hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
 const connector = new AppSearchAPIConnector({
   searchKey,
   engineName,
@@ -63,47 +63,44 @@ export default function SearchApp() {
               <ErrorBoundary>
                 <Layout
                   header={
-                    <Sticky topOffset={56}>
-                      {({ style }) => (
-                        <nav className={"nav search-nav"} style={style}>
-                          <Navbar.Brand href="/" className={"text-center"}>
-                            <Image
-                              src={logo}
-                              className="d-inline-block align-top"
-                              // alt="Covid Scholar logo"
-                            />
-                          </Navbar.Brand>
-                          <div className={"nav-search-bar"}>
-                            <SearchBox
-                              autocompleteSuggestions={true}
-                              inputView={({
-                                getAutocomplete,
-                                getInputProps,
-                                // getButtonProps,
-                              }) => (
-                                <div className="sui-search-box__wrapper column">
-                                  <span className="pl-1 pr-5 search-help-text">
-                                    {" "}
-                                    Search more than 44,000 COVID-19 papers, powered by NLP.
-                                  </span>
-                                  <input
-                                    {...getInputProps({
-                                      placeholder: "Search",
-                                      className:
-                                        "form-control form-rounded m-0",
-                                      style: { inputmode: "search" },
-                                      autoFocus: true,
-                                    })}
-                                  />
-                                  {getAutocomplete({
-                                    className: "auto-complete m-0 is-top-layer",
+                    <Sticky topOffset={56}>{({style}) =>
+                      <nav className={"nav search-nav"}>
+                        <Navbar.Brand href="/" className={"text-center"}>
+                          <Image
+                            src={logo}
+                            className="d-inline-block align-top"
+                            // alt="Covid Scholar logo"
+                          />
+                        </Navbar.Brand>
+                        <div className={"nav-search-bar"}>
+                          <SearchBox
+                            autocompleteSuggestions={true}
+                            inputView={({
+                                          getAutocomplete,
+                                          getInputProps,
+                                          // getButtonProps,
+                                        }) => (
+                              <div className="sui-search-box__wrapper column">
+                              <span className="pl-1 pr-5 search-help-text">
+                                {" "}
+                                Search more than 44,000 COVID-19 papers
+                              </span>
+                                <input
+                                  {...getInputProps({
+                                    placeholder: "Search",
+                                    className: "form-control form-rounded m-0",
+                                    style: {inputmode: "search"},
+                                    autoFocus: true,
                                   })}
-                                </div>
-                              )}
-                            />
-                          </div>
-                        </nav>
-                      )}
+                                />
+                                {getAutocomplete({
+                                  className: "auto-complete m-0"
+                                })}
+                              </div>
+                            )}
+                          />
+                        </div>
+                      </nav>}
                     </Sticky>
                   }
                   sideContent={FilterSideBar(wasSearched)}
