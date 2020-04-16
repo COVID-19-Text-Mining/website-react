@@ -64,5 +64,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": ["api.covidscholar.com", "localhost:3000", "https://api.covidscholar.com"]
 }

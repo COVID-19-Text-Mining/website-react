@@ -43,7 +43,6 @@ const config = {
     ...buildSearchOptionsFromConfig(),
     disjunctiveFacets: ["journal"],
   },
-  autocompleteQuery: buildAutocompleteQueryConfig(),
   apiConnector: connector,
   alwaysSearchOnInitialLoad: true,
 };
@@ -84,7 +83,7 @@ export default function SearchApp() {
                                 <div className="sui-search-box__wrapper column">
                                   <span className="pl-1 pr-5 search-help-text">
                                     {" "}
-                                    Search more than 44,000 COVID-19 papers, powered by NLP.
+                                    Search more than 44,000 COVID-19 papers
                                   </span>
                                   <input
                                     {...getInputProps({
@@ -96,7 +95,7 @@ export default function SearchApp() {
                                     })}
                                   />
                                   {getAutocomplete({
-                                    className: "auto-complete m-0 is-top-layer",
+                                    className: "auto-complete m-0",
                                   })}
                                 </div>
                               )}
