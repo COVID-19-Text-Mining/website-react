@@ -64,7 +64,7 @@ export default function SearchApp() {
                 <Layout
                   header={
                     <Sticky topOffset={56}>{({style}) =>
-                      <nav className={"nav search-nav"}>
+                      <nav className={"nav search-nav"} style={style}>
                         <Navbar.Brand href="/" className={"text-center"}>
                           <Image
                             src={logo}
